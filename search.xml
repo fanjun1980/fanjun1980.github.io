@@ -4,6 +4,14 @@
   
     
     <entry>
+      <title><![CDATA[程序通过ssh/telnet调用shell命令返回乱码问题]]></title>
+      <url>http://yoursite.com/2016/09/03/java-ssh-unreadable-code/</url>
+      <content type="html"><![CDATA[<p><strong>问题描述：</strong><br>在使用java调用ssh协议访问linux的时候，常常发现返回的结果中有乱码，这样的返回结果一般很难解析。如下：<br><img src="http://ocf6s1zuq.bkt.clouddn.com/java-ssh-unreadable-code/unreadable_code.png" alt=""></p>
+<p><strong>解决办法：</strong><br>造成这种情况的原因由于linux终端返回的代码中会包含控制代码和转义码，一般是以ESC开头的字符串，详见：<a href="http://www.truevue.org/linux/console-codes" target="_blank" rel="external">http://www.truevue.org/linux/console-codes</a>，一般在返回中以“[00m“的居多，用于指定显示的颜色、加粗等。<br>程序中需要去除这些字符，可以通过正则表达式：<code>\e\[.*?m|\e\].*?;</code></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[分布式事务之二阶段提交、三阶段提交]]></title>
       <url>http://yoursite.com/2016/08/18/2PC_3PC/</url>
       <content type="html"><![CDATA[<h2 id="分布式事务及其实现机制"><a href="#分布式事务及其实现机制" class="headerlink" title="分布式事务及其实现机制"></a>分布式事务及其实现机制</h2><blockquote>
