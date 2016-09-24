@@ -10,7 +10,7 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="baidu-site-verification" content="mOTl47udWc" />
+<meta name="baidu-site-verification" content="w2yx2pKlOb" />
 <meta name="google-site-verification" content="m_rOoLqBRjnOa2I7rXzwTUW53aZqTLh2HXcVvig34a0" />
 
 
@@ -69,7 +69,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ssh,shell,乱码" />
+  <meta name="keywords" content="Hexo,next,SEO" />
 
 
 
@@ -87,18 +87,13 @@
 
 
 
-<meta name="description" content="程序通过ssh/telnet调用远程服务器上的shell命令时经常会返回一些乱码，影响返回结果的正常解析。本文分析这种情况出现的原因及解决办法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="程序通过ssh/telnet调用shell命令返回乱码问题">
-<meta property="og:url" content="http://fanjun.im/java-ssh-unreadable-code.html">
+<meta property="og:title" content="Hexo Next 主题SEO优化">
+<meta property="og:url" content="http://fanjun.im/2016/09/hexo_next_seo.html">
 <meta property="og:site_name" content="FanJun's Blog">
-<meta property="og:description" content="程序通过ssh/telnet调用远程服务器上的shell命令时经常会返回一些乱码，影响返回结果的正常解析。本文分析这种情况出现的原因及解决办法。">
-<meta property="og:image" content="http://ocf6s1zuq.bkt.clouddn.com/java-ssh-unreadable-code/unreadable_code.png">
-<meta property="og:updated_time" content="2016-09-24T06:32:21.047Z">
+<meta property="og:updated_time" content="2016-09-24T06:30:19.455Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="程序通过ssh/telnet调用shell命令返回乱码问题">
-<meta name="twitter:description" content="程序通过ssh/telnet调用远程服务器上的shell命令时经常会返回一些乱码，影响返回结果的正常解析。本文分析这种情况出现的原因及解决办法。">
-<meta name="twitter:image" content="http://ocf6s1zuq.bkt.clouddn.com/java-ssh-unreadable-code/unreadable_code.png">
+<meta name="twitter:title" content="Hexo Next 主题SEO优化">
 
 
 
@@ -119,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://fanjun.im/java-ssh-unreadable-code.html"/>
+  <link rel="canonical" href="http://fanjun.im/2016/09/hexo_next_seo.html"/>
 
-  <title> 程序通过ssh/telnet调用shell命令返回乱码问题 | FanJun's Blog </title>
+  <title> Hexo Next 主题SEO优化 | FanJun's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -284,7 +279,7 @@
             
             
               
-                程序通过ssh/telnet调用shell命令返回乱码问题
+                Hexo Next 主题SEO优化
               
             
           </h1>
@@ -296,8 +291,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-03T23:41:37+08:00" content="2016-09-03">
-              2016-09-03
+            <time itemprop="dateCreated" datetime="2016-09-24T13:38:00+08:00" content="2016-09-24">
+              2016-09-24
             </time>
           </span>
 
@@ -310,8 +305,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
+                  <a href="/categories/SEO/" itemprop="url" rel="index">
+                    <span itemprop="name">SEO</span>
                   </a>
                 </span>
 
@@ -326,8 +321,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/java-ssh-unreadable-code.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="java-ssh-unreadable-code.html" itemprop="commentsCount"></span>
+                <a href="/2016/09/hexo_next_seo.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/hexo_next_seo.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -355,9 +350,7 @@
       
 
       
-        <p><strong>问题描述：</strong><br>在使用java调用ssh协议访问linux的时候，常常发现返回的结果中有乱码，这样的返回结果一般很难解析。如下：<br><img src="http://ocf6s1zuq.bkt.clouddn.com/java-ssh-unreadable-code/unreadable_code.png" alt=""></p>
-<p><strong>解决办法：</strong><br>造成这种情况的原因由于linux终端返回的代码中会包含控制代码和转义码，一般是以ESC开头的字符串，详见：<a href="http://www.truevue.org/linux/console-codes" target="_blank" rel="external">http://www.truevue.org/linux/console-codes</a>，一般在返回中以“[00m“的居多，用于指定显示的颜色、加粗等。<br>程序中需要去除这些字符，可以通过正则表达式：<code>\e\[.*?m|\e\].*?;</code></p>
-
+        
       
     </div>
 
@@ -379,7 +372,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/编程经验/" rel="tag">#编程经验</a>
+            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+          
+            <a href="/tags/Next/" rel="tag">#Next</a>
+          
+            <a href="/tags/SEO/" rel="tag">#SEO</a>
           
         </div>
       
@@ -388,17 +385,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2PC_3PC.html" rel="next" title="分布式事务之二阶段提交、三阶段提交">
-                <i class="fa fa-chevron-left"></i> 分布式事务之二阶段提交、三阶段提交
+              <a href="/2016/09/Paxos-Raft.html" rel="next" title="分布式一致性之Paxos、Raft">
+                <i class="fa fa-chevron-left"></i> 分布式一致性之Paxos、Raft
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Paxos-Raft.html" rel="prev" title="分布式一致性之Paxos、Raft">
-                分布式一致性之Paxos、Raft <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -413,10 +406,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="java-ssh-unreadable-code.html"
-     data-title="程序通过ssh/telnet调用shell命令返回乱码问题"
+        <div class="ds-share flat" data-thread-key="2016/09/hexo_next_seo.html"
+     data-title="Hexo Next 主题SEO优化"
      data-content=""
-     data-url="http://fanjun.im/java-ssh-unreadable-code.html">
+     data-url="http://fanjun.im/2016/09/hexo_next_seo.html">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -443,8 +436,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="java-ssh-unreadable-code.html"
-           data-title="程序通过ssh/telnet调用shell命令返回乱码问题" data-url="http://fanjun.im/java-ssh-unreadable-code.html">
+      <div class="ds-thread" data-thread-key="2016/09/hexo_next_seo.html"
+           data-title="Hexo Next 主题SEO优化" data-url="http://fanjun.im/2016/09/hexo_next_seo.html">
       </div>
     
   </div>
