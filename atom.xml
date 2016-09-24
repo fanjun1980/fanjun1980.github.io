@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fanjun.im/"/>
-  <updated>2016-09-24T06:30:19.455Z</updated>
+  <updated>2016-09-24T15:19:43.584Z</updated>
   <id>http://fanjun.im/</id>
   
   <author>
@@ -20,9 +20,79 @@
     <link href="http://fanjun.im/2016/09/hexo_next_seo.html"/>
     <id>http://fanjun.im/2016/09/hexo_next_seo.html</id>
     <published>2016-09-24T05:38:00.000Z</published>
-    <updated>2016-09-24T06:30:19.455Z</updated>
+    <updated>2016-09-24T15:19:43.584Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近更新了下博客，但是发现在百度和google上都搜索不到，看来是要做下SEO优化了。</p>
+<blockquote>
+<p>确定是否被搜索引擎录入的方法：在百度或者谷歌上面输入 <code>site: 域名</code> 来判断，如果能搜索到就说明被收录，否则就没有 </p>
+</blockquote>
+<p>结合网上资料和自己实际优化的结果，整理如下。</p>
+<h1 id="针对百度、google的优化"><a href="#针对百度、google的优化" class="headerlink" title="针对百度、google的优化"></a>针对百度、google的优化</h1><h2 id="给你的hexo站点添加sitemap网站地图"><a href="#给你的hexo站点添加sitemap网站地图" class="headerlink" title="给你的hexo站点添加sitemap网站地图"></a>给你的hexo站点添加sitemap网站地图</h2><ol>
+<li><p>安装hexo的sitemap网站地图生成插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-sitemap --save</div><div class="line">npm install hexo-generator-baidu-sitemap --save</div></pre></td></tr></table></figure>
+</li>
+<li><p>在你的hexo站点的_config.yml添加下面的代码</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># hexo sitemap网站地图</span></div><div class="line"><span class="attr">sitemap:</span></div><div class="line"><span class="attr">  path:</span> sitemap.xml</div><div class="line"><span class="attr">baidusitemap:</span></div><div class="line"><span class="attr">  path:</span> baidusitemap.xml</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>配置成功后，hexo编译时会在hexo站点根目录生成sitemap.xml和baidusitemap.xml</p>
+<blockquote>
+<p>sitemap.xml适合提交给谷歌搜素引擎<br>baidusitemap.xml适合提交百度搜索引擎。</p>
+</blockquote>
+<h2 id="给你的hexo网站添加蜘蛛协议robots-txt"><a href="#给你的hexo网站添加蜘蛛协议robots-txt" class="headerlink" title="给你的hexo网站添加蜘蛛协议robots.txt"></a>给你的hexo网站添加蜘蛛协议robots.txt</h2><p>在robots.txt中添加上面生成的sitemap文件，我的配置文件如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># hexo robots.txt</div><div class="line">User-agent: *</div><div class="line">Allow: /</div><div class="line">Allow: /archives/</div><div class="line">Allow: /categories/</div><div class="line">Allow: /about/</div><div class="line">Allow: /tags/</div><div class="line"></div><div class="line">Disallow: /vendors/</div><div class="line">Disallow: /js/</div><div class="line">Disallow: /css/</div><div class="line">Disallow: /fonts/</div><div class="line">Disallow: /vendors/</div><div class="line">Disallow: /fancybox/</div><div class="line"></div><div class="line">Sitemap: http://fanjun.im/sitemap.xml</div><div class="line">Sitemap: http://fanjun.im/baidusitemap.xml</div></pre></td></tr></table></figure></p>
+<p>请自行改成自己的网站。<br>把robots.txt放在你的hexo站点的<code>source</code>文件下即可。</p>
+<h2 id="让百度、google收录你的博客网站"><a href="#让百度、google收录你的博客网站" class="headerlink" title="让百度、google收录你的博客网站"></a>让百度、google收录你的博客网站</h2><ol>
+<li><p>验证你的博客网站<br>首先需要验证你的网站，通过下面的链接访问：<br><a href="https://www.google.com/webmasters/tools/home?hl=zh-CN" target="_blank" rel="external">Google搜索引擎入口</a><br><a href="http://zhanzhang.baidu.com/linksubmit/url" target="_blank" rel="external">百度搜索引擎入口</a><br>由于我使用html页面验证不成功（hexo是单页app，自动将html页面添加到框架中，造成无法验证通过），所以我选择了<code>HTML标签验证</code></p>
+<ul>
+<li>google验证：<br><img src="http://ocf6s1zuq.bkt.clouddn.com/hexo_next_seo/google-valid-0.png" alt=""><br><img src="http://ocf6s1zuq.bkt.clouddn.com/hexo_next_seo/google-valid.png" alt=""></li>
+<li>百度验证：<br><img src="http://ocf6s1zuq.bkt.clouddn.com/hexo_next_seo/baidu-valid-0.png" alt=""><br><img src="http://ocf6s1zuq.bkt.clouddn.com/hexo_next_seo/baidu-valid.png" alt=""></li>
+<li>将google和百度的html标签，插入<code>your-hexo-site\themes\next\layout\_partials\head.swig</code> 文件的最后</li>
+<li>重新发布文件后，点击<code>完成验证</code>按钮，待提示完成即可</li>
+</ul>
+</li>
+<li><p>收录博客</p>
+<ul>
+<li>google收录<br>让谷歌收录我们的博客操作比较简单，就是向Google站长工具提交sitemap<br>登录Google账号，添加了站点验证通过后，选择站点，之后在 抓取-&gt; 站点地图 中就能看到<code>添加/测试站点地图</code>，如下图：<br><img src="http://ocf6s1zuq.bkt.clouddn.com/hexo_next_seo/google-sitemap.png" alt=""><br>谷歌提交过了一两天就能搜索到博客了</li>
+<li><p>百度收录<br>相比google百度操作可能比较麻烦一点。这里是百度介绍的几种主动提交博客文章链接的方式：</p>
+<ol>
+<li>主动推送：最为快速的提交方式，推荐您将站点当天新产出链接立即通过此方式推送给百度，以保证新链接可以及时被百度收录。</li>
+<li>自动推送：最为便捷的提交方式，请将自动推送的JS代码部署在站点的每一个页面源代码中，部署代码的页面在每次被浏览时，链接会被自动推送给百度。可以与主动推送配合使用。</li>
+<li>sitemap：您可以定期将网站链接放到sitemap中，然后将sitemap提交给百度。百度会周期性的抓取检查您提交的sitemap，对其中的链接进行处理，但收录速度慢于主动推送。</li>
+<li>手动提交：一次性提交链接给百度，可以使用此种方式。</li>
+</ol>
+<p>从效率上来说：主动推送&gt;自动推送&gt;sitemap<br>这里介绍自动推送和sitemap提交方式：</p>
+<ul>
+<li>自动推送<br><img src="http://ocf6s1zuq.bkt.clouddn.com/hexo_next_seo/baidu-push.png" alt=""><br>自动推送是百度站长平台为提高站点新增网页发现速度推出的工具，安装自动推送JS代码的网页，在页面被访问时，页面URL将立即被推送给百度。<br>js代码我是放在<code>your-hexo-site\themes\next\layout\_partials\head.swig</code>中，添加到最下面就行。</li>
+<li>sitemap提交<br>直接提交<a href="http://fanjun.im/baidusitemap.xml">http://fanjun.im/baidusitemap.xml</a> 就行，如下图<br><img src="http://ocf6s1zuq.bkt.clouddn.com/hexo_next_seo/baidu-sitemap.png" alt=""><br>我把sitemap.xml和baidusitemap.xml都提交了，反正也没啥坏处。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>至此我们的博客已经被百度与google这样的搜索引擎收录，如果出现无法收录，可以过几天再登录看看结果。<br>下面在说说Hexo本身需要做的优化。</p>
+<h1 id="Hexo网站结构优化"><a href="#Hexo网站结构优化" class="headerlink" title="Hexo网站结构优化"></a>Hexo网站结构优化</h1><h2 id="给非友情链接的出站链接添加-“nofollow”-标签"><a href="#给非友情链接的出站链接添加-“nofollow”-标签" class="headerlink" title="给非友情链接的出站链接添加 “nofollow” 标签"></a>给非友情链接的出站链接添加 “nofollow” 标签</h2><p>网络爬虫会在当前页面搜索所有的链接，然后一个个查看，所以就很有可能跳到别的网站就不回来了。这个时候就需要<code>nofollow</code>起作用了。<br><code>nofollow</code>标签是由谷歌领头创新的一个“反垃圾链接”的标签，并被百度、yahoo等各大搜索引擎广泛支持，引用<code>nofollow</code>标签的目的是：用于指示搜索引擎不要追踪（即抓取）网页上的带有<code>nofollow</code>属性的任何出站链接，以减少垃圾链接的分散网站权重。<br>Hexo 的 Next 主题需要改以下几个地方：</p>
+<ol>
+<li><p>找到<code>footer.swig</code>，路径在<code>your-hexo-site\themes\next\layout\_partials</code>，将下面代码中的<code>a</code>标签加上<code>rel=&quot;external nofollow&quot;</code>属性；</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"theme-link"</span> <span class="attr">href</span>=<span class="string">"http://hexo.io"</span>&gt;</span>Hexo<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">改为</div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"theme-link"</span> <span class="attr">href</span>=<span class="string">"https://hexo.io"</span> <span class="attr">rel</span>=<span class="string">"external nofollow"</span>&gt;</span>Hexo<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"theme-link"</span> <span class="attr">href</span>=<span class="string">"https://github.com/iissnan/hexo-theme-next"</span>&gt;</span></div><div class="line">改为</div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"theme-link"</span> <span class="attr">href</span>=<span class="string">"https://github.com/iissnan/hexo-theme-next"</span> <span class="attr">rel</span>=<span class="string">"external nofollow"</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>修改<code>sidebar.swig</code>文件，路径在<code>your-hexo-site\themes\next\layout_macro</code>，将下面代码中的<code>a</code>标签加上<code>rel=&quot;external nofollow&quot;</code>属性；</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; link &#125;&#125;"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>&#123;&#123; name &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">改为</div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; link &#125;&#125;"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">title</span>=<span class="string">"&#123;&#123; name &#125;&#125;"</span> <span class="attr">rel</span>=<span class="string">"external nofollow"</span>&gt;</span></div></pre></td></tr></table></figure>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://creativecommons.org/&#123;% if theme.creative_commons === 'zero' %&#125;publicdomain/zero/1.0&#123;% else %&#125;licenses/&#123;&#123; theme.creative_commons &#125;&#125;/4.0&#123;% endif %&#125;/"</span> <span class="attr">class</span>=<span class="string">"cc-opacity"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span></div><div class="line">改为</div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://creativecommons.org/&#123;% if theme.creative_commons === 'zero' %&#125;publicdomain/zero/1.0&#123;% else %&#125;licenses/&#123;&#123; theme.creative_commons &#125;&#125;/4.0&#123;% endif %&#125;/"</span> <span class="attr">class</span>=<span class="string">"cc-opacity"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">rel</span>=<span class="string">"external nofollow"</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="keywords-和-description"><a href="#keywords-和-description" class="headerlink" title="keywords 和 description"></a>keywords 和 description</h2><p>在<code>\scaffolds\post.md</code>中添加如下代码，用于生成的文章中添加关键字和描述。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">keywords:</div><div class="line">description:</div></pre></td></tr></table></figure></p>
+<p><strong>新建post的时候记得keywords中输入关键词，会自动转成 <code>&lt;meta name=&quot;keywords&quot; content=&quot;XXX&quot; /&gt;</code></strong></p>
+<h2 id="首页title的优化"><a href="#首页title的优化" class="headerlink" title="首页title的优化"></a>首页title的优化</h2><p>更改<code>index.swig</code>文件，文件路径是<code>your-hexo-site\themes\next\layout</code>，修改以下代码<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;% block title %&#125;  &#123;&#123; config.title &#125;&#125;  &#123;% endblock %&#125;</div><div class="line">改成</div><div class="line">&#123;% block title %&#125;  &#123;&#123; config.title &#125;&#125; - &#123;&#123; theme.description &#125;&#125;  &#123;% endblock %&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="修改网站链接"><a href="#修改网站链接" class="headerlink" title="修改网站链接"></a>修改网站链接</h2><p>编辑站点<code>_config.yml</code>文件<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># URL</span></div><div class="line"><span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></div><div class="line"><span class="attr">url:</span> http://fanjun.im</div></pre></td></tr></table></figure></p>
+<p>修改为你自己的网站域名。</p>
+<h2 id="修改文章链接"><a href="#修改文章链接" class="headerlink" title="修改文章链接"></a>修改文章链接</h2><p>HEXO默认的文章链接形式为<code>domain/year/month/day/postname</code>，默认就是一个四级url，并且可能造成url过长，对搜索引擎是十分不友好的，我们可以改成<code>domain/postname</code> 的形式。<br>编辑站点<code>_config.yml</code>文件，修改其中的permalink字段改为<code>permalink: :title.html</code>即可。</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="http://www.arao.me/2015/hexo-next-theme-optimize-seo/" target="_blank" rel="external">动动手指，不限于NexT主题的Hexo优化（SEO篇）</a><br><a href="http://www.jianshu.com/p/0d54a590b81a" target="_blank" rel="external">Hexo NexT 主题SEO优化指南</a><br><a href="http://www.troylc.cc/hexo/2016/06/16/Hexo-4.html" target="_blank" rel="external">Hexo教程(四)-hexo博客被搜索引擎收录</a></p>
+]]></content>
     
     <summary type="html">
+    
+      最近更新了下博客，但是发现在百度和google上都搜索不到，看来是要做下SEO优化了。
     
     </summary>
     
