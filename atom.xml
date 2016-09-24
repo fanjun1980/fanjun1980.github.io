@@ -17,8 +17,8 @@
   
   <entry>
     <title>Hexo Next 主题SEO优化</title>
-    <link href="http://fanjun.im/2016/09/24/hexo_next_seo/"/>
-    <id>http://fanjun.im/2016/09/24/hexo_next_seo/</id>
+    <link href="http://fanjun.im/hexo_next_seo.html"/>
+    <id>http://fanjun.im/hexo_next_seo.html</id>
     <published>2016-09-24T05:38:00.000Z</published>
     <updated>2016-09-24T06:30:19.455Z</updated>
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title>分布式一致性之Paxos、Raft</title>
-    <link href="http://fanjun.im/2016/09/10/Paxos-Raft/"/>
-    <id>http://fanjun.im/2016/09/10/Paxos-Raft/</id>
+    <link href="http://fanjun.im/Paxos-Raft.html"/>
+    <id>http://fanjun.im/Paxos-Raft.html</id>
     <published>2016-09-10T06:14:04.000Z</published>
     <updated>2016-09-24T06:30:35.047Z</updated>
     
@@ -197,8 +197,8 @@
   
   <entry>
     <title>程序通过ssh/telnet调用shell命令返回乱码问题</title>
-    <link href="http://fanjun.im/2016/09/03/java-ssh-unreadable-code/"/>
-    <id>http://fanjun.im/2016/09/03/java-ssh-unreadable-code/</id>
+    <link href="http://fanjun.im/java-ssh-unreadable-code.html"/>
+    <id>http://fanjun.im/java-ssh-unreadable-code.html</id>
     <published>2016-09-03T15:41:37.000Z</published>
     <updated>2016-09-24T06:32:21.047Z</updated>
     
@@ -221,8 +221,8 @@
   
   <entry>
     <title>分布式事务之二阶段提交、三阶段提交</title>
-    <link href="http://fanjun.im/2016/08/18/2PC_3PC/"/>
-    <id>http://fanjun.im/2016/08/18/2PC_3PC/</id>
+    <link href="http://fanjun.im/2PC_3PC.html"/>
+    <id>http://fanjun.im/2PC_3PC.html</id>
     <published>2016-08-18T15:17:06.000Z</published>
     <updated>2016-09-24T06:31:50.038Z</updated>
     
@@ -333,8 +333,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://fanjun.im/2016/08/12/hello-world/"/>
-    <id>http://fanjun.im/2016/08/12/hello-world/</id>
+    <link href="http://fanjun.im/hello-world.html"/>
+    <id>http://fanjun.im/hello-world.html</id>
     <published>2016-08-12T08:57:17.371Z</published>
     <updated>2016-08-12T14:13:11.727Z</updated>
     

@@ -5,13 +5,13 @@
     
     <entry>
       <title><![CDATA[Hexo Next 主题SEO优化]]></title>
-      <url>http://fanjun.im/2016/09/24/hexo_next_seo/</url>
+      <url>http://fanjun.im/hexo_next_seo.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
       <title><![CDATA[分布式一致性之Paxos、Raft]]></title>
-      <url>http://fanjun.im/2016/09/10/Paxos-Raft/</url>
+      <url>http://fanjun.im/Paxos-Raft.html</url>
       <content type="html"><![CDATA[<h2 id="Paxos"><a href="#Paxos" class="headerlink" title="Paxos"></a>Paxos</h2><p>Paxos 算法解决的问题是一个分布式系统如何就某个值（决议）达成一致。一个典型的场景是，在一个分布式数据库系统中，如果各节点的初始状态一致，每个节点执行相同的操作序列，那么他们最后能得到一个一致的状态。为保证每个节点执行相同的命令序列，需要在每一条指令上执行一个“一致性算法”以保证每个节点看到的指令一致。一个通用的一致性算法可以应用在许多场景中，是分布式计算中的重要问题。节点通信存在两种模型：共享内存（Shared memory）和消息传递（Messages passing）。Paxos 算法就是一种基于消息传递模型的一致性算法。</p>
 <p>Paxos 算法适用的几种情况：一台机器中多个进程/线程达成数据一致；分布式文件系统或者分布式数据库中多客户端并发读写数据；分布式存储中多个副本响应读写请求的一致性。</p>
 <p>Paxos 是第一个被证明的一致性算法，其原理基于<code>两阶段提交</code>并进行扩展。作为现在一致性算法设计的鼻祖，以最初论文的难懂出名。<br>算法中将节点分为三种类型：</p>
@@ -151,7 +151,7 @@
     
     <entry>
       <title><![CDATA[程序通过ssh/telnet调用shell命令返回乱码问题]]></title>
-      <url>http://fanjun.im/2016/09/03/java-ssh-unreadable-code/</url>
+      <url>http://fanjun.im/java-ssh-unreadable-code.html</url>
       <content type="html"><![CDATA[<p><strong>问题描述：</strong><br>在使用java调用ssh协议访问linux的时候，常常发现返回的结果中有乱码，这样的返回结果一般很难解析。如下：<br><img src="http://ocf6s1zuq.bkt.clouddn.com/java-ssh-unreadable-code/unreadable_code.png" alt=""></p>
 <p><strong>解决办法：</strong><br>造成这种情况的原因由于linux终端返回的代码中会包含控制代码和转义码，一般是以ESC开头的字符串，详见：<a href="http://www.truevue.org/linux/console-codes" target="_blank" rel="external">http://www.truevue.org/linux/console-codes</a>，一般在返回中以“[00m“的居多，用于指定显示的颜色、加粗等。<br>程序中需要去除这些字符，可以通过正则表达式：<code>\e\[.*?m|\e\].*?;</code></p>
 ]]></content>
@@ -159,7 +159,7 @@
     
     <entry>
       <title><![CDATA[分布式事务之二阶段提交、三阶段提交]]></title>
-      <url>http://fanjun.im/2016/08/18/2PC_3PC/</url>
+      <url>http://fanjun.im/2PC_3PC.html</url>
       <content type="html"><![CDATA[<h2 id="分布式事务及其实现机制"><a href="#分布式事务及其实现机制" class="headerlink" title="分布式事务及其实现机制"></a>分布式事务及其实现机制</h2><blockquote>
 <p>分布式事务是指会涉及到操作多个数据库（或者提供事务语义的系统，如JMS）的事务。其实就是将对同一数据库事务的概念扩大到了对多个数据库的事务。目的是为了保证分布式系统中事务操作的原子性。分布式事务处理的关键是必须有一种方法可以知道事务在任何地方所做的所有动作，提交或回滚事务的决定必须产生统一的结果（全部提交或全部回滚）。</p>
 </blockquote>
@@ -253,7 +253,7 @@
     
     <entry>
       <title><![CDATA[Hello World]]></title>
-      <url>http://fanjun.im/2016/08/12/hello-world/</url>
+      <url>http://fanjun.im/hello-world.html</url>
       <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
