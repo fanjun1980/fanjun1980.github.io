@@ -89,7 +89,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="FanJun's Blog">
-<meta property="og:url" content="http://fanjun.im/categories/java/index.html">
+<meta property="og:url" content="http://fanjun.im/categories/Java/index.html">
 <meta property="og:site_name" content="FanJun's Blog">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FanJun's Blog">
@@ -104,7 +104,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: undefined,
       author: '博主'
     }
   };
@@ -113,7 +113,7 @@
 
 
 
-  <link rel="canonical" href="http://fanjun.im/categories/java/"/>
+  <link rel="canonical" href="http://fanjun.im/categories/Java/"/>
 
 
 <script>
@@ -131,7 +131,7 @@
 })();
 </script>
 
-  <title> 分类: java | FanJun's Blog </title>
+  <title> 分类: Java | FanJun's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -276,7 +276,7 @@
   <section id="posts" class="posts-collapse">
     <div class="collection-title">
       <h2 >
-        java
+        Java
         <small>分类</small>
       </h2>
     </div>
@@ -289,9 +289,9 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/09/java-ssh-unreadable-code.html" itemprop="url">
+            <a class="post-title-link" href="/2017/11/JDK8_Lambda.html" itemprop="url">
               
-                <span itemprop="name">程序通过ssh/telnet调用shell命令返回乱码问题</span>
+                <span itemprop="name">开机自动后台运行VirtualBox虚拟机</span>
               
             </a>
         
@@ -299,9 +299,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-03T23:41:37+08:00"
-              content="2016-09-03" >
-          09-03
+              datetime="2017-11-08T10:05:00+08:00"
+              content="2017-11-08" >
+          11-08
         </time>
       </div>
 
@@ -352,7 +352,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -360,7 +360,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -369,7 +369,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -432,8 +432,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -536,30 +536,28 @@
 
   
 
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"fanjun-blog"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
 
 
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'fanjun_blog';
+      var disqus_identifier = 'categories/Java/index.html';
+      var disqus_title = "";
+      var disqus_url = '';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+    </script>
+  
 
 
 
@@ -697,6 +695,14 @@
 
 
   
+
+  
+
+  
+
+</body>
+</html>
+ 
 
   
 

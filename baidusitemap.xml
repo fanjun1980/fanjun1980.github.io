@@ -4,8 +4,64 @@
 
     
   <url>
+    <loc>http://fanjun.im/2017/11/JDK8_Lambda.html</loc>
+    <lastmod>2017-11-08T02:07:36.493Z</lastmod>
+    <data>
+        <display>
+        <title>开机自动后台运行VirtualBox虚拟机</title>
+        <pubTime>2017-11-08T02:05:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Java" url="http://fanjun.im/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fanjun.im/2016/08/hello-world.html</loc>
+    <lastmod>2017-11-08T01:24:11.922Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2016-08-12T14:00:00.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fanjun.im/2017/02/%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8CVirtualBox%E8%99%9A%E6%8B%9F%E6%9C%BA.html</loc>
+    <lastmod>2017-02-19T05:50:43.730Z</lastmod>
+    <data>
+        <display>
+        <title>开机自动后台运行VirtualBox虚拟机</title>
+        <pubTime>2017-02-19T05:34:00.000Z</pubTime>
+        
+        <tag>VM</tag>
+         
+         
+           
+             
+              <breadCrumb title="VM" url="http://fanjun.im/categories/VM/"/>
+          
+             
+              <breadCrumb title="docker" url="http://fanjun.im/categories/VM/docker/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://fanjun.im/2016/09/hexo_next_seo.html</loc>
-    <lastmod>2016-09-24T15:19:43.584Z</lastmod>
+    <lastmod>2016-09-24T15:19:43.000Z</lastmod>
     <data>
         <display>
         <title>Hexo Next 主题SEO优化</title>
@@ -29,7 +85,7 @@
     
   <url>
     <loc>http://fanjun.im/2016/09/java-ssh-unreadable-code.html</loc>
-    <lastmod>2016-09-24T06:32:21.047Z</lastmod>
+    <lastmod>2016-09-24T06:32:21.000Z</lastmod>
     <data>
         <display>
         <title>程序通过ssh/telnet调用shell命令返回乱码问题</title>
@@ -49,7 +105,7 @@
     
   <url>
     <loc>http://fanjun.im/2016/08/2PC_3PC.html</loc>
-    <lastmod>2016-09-24T06:31:50.038Z</lastmod>
+    <lastmod>2016-09-24T06:31:50.000Z</lastmod>
     <data>
         <display>
         <title>分布式事务之二阶段提交、三阶段提交</title>
@@ -71,7 +127,7 @@
     
   <url>
     <loc>http://fanjun.im/2016/09/Paxos-Raft.html</loc>
-    <lastmod>2016-09-24T06:30:35.047Z</lastmod>
+    <lastmod>2016-09-24T06:30:35.000Z</lastmod>
     <data>
         <display>
         <title>分布式一致性之Paxos、Raft</title>
@@ -86,21 +142,6 @@
              
               <breadCrumb title="分布式" url="http://fanjun.im/categories/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://fanjun.im/2016/08/hello-world.html</loc>
-    <lastmod>2016-08-12T14:13:11.727Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2016-08-12T08:57:17.371Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>

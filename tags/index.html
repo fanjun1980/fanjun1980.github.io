@@ -91,7 +91,7 @@
 <meta property="og:title" content="Tagcloud">
 <meta property="og:url" content="http://fanjun.im/tags/index.html">
 <meta property="og:site_name" content="FanJun's Blog">
-<meta property="og:updated_time" content="2015-08-26T15:48:17.392Z">
+<meta property="og:updated_time" content="2015-08-26T15:48:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tagcloud">
 
@@ -105,7 +105,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: undefined,
       author: '博主'
     }
   };
@@ -285,10 +285,10 @@
     
       <div class="tag-cloud">
         <div class="tag-cloud-title">
-            目前共计 6 个标签
+            目前共计 7 个标签
         </div>
         <div class="tag-cloud-tags">
-          <a href="/tags/Hexo/" style="font-size: 12px; color: #ccc">Hexo</a> <a href="/tags/Next/" style="font-size: 12px; color: #ccc">Next</a> <a href="/tags/SEO/" style="font-size: 12px; color: #ccc">SEO</a> <a href="/tags/分布式/" style="font-size: 30px; color: #111">分布式</a> <a href="/tags/协议/" style="font-size: 30px; color: #111">协议</a> <a href="/tags/编程经验/" style="font-size: 12px; color: #ccc">编程经验</a>
+          <a href="/tags/Hexo/" style="font-size: 12px; color: #ccc">Hexo</a> <a href="/tags/Next/" style="font-size: 12px; color: #ccc">Next</a> <a href="/tags/SEO/" style="font-size: 12px; color: #ccc">SEO</a> <a href="/tags/VM/" style="font-size: 12px; color: #ccc">VM</a> <a href="/tags/分布式/" style="font-size: 30px; color: #111">分布式</a> <a href="/tags/协议/" style="font-size: 30px; color: #111">协议</a> <a href="/tags/编程经验/" style="font-size: 12px; color: #ccc">编程经验</a>
         </div>
       </div>
     
@@ -331,7 +331,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -339,7 +339,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -348,7 +348,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -411,8 +411,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -515,30 +515,28 @@
 
   
 
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"fanjun-blog"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
 
 
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'fanjun_blog';
+      var disqus_identifier = 'tags/index.html';
+      var disqus_title = "Tagcloud";
+      var disqus_url = 'http://fanjun.im/tags/index.html';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+    </script>
+  
 
 
 

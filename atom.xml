@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fanjun.im/"/>
-  <updated>2016-09-24T15:19:43.584Z</updated>
+  <updated>2017-11-08T02:07:36.493Z</updated>
   <id>http://fanjun.im/</id>
   
   <author>
@@ -16,11 +16,135 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>开机自动后台运行VirtualBox虚拟机</title>
+    <link href="http://fanjun.im/2017/11/JDK8_Lambda.html"/>
+    <id>http://fanjun.im/2017/11/JDK8_Lambda.html</id>
+    <published>2017-11-08T02:05:00.000Z</published>
+    <updated>2017-11-08T02:07:36.493Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="JDK8-Lambda"><a href="#JDK8-Lambda" class="headerlink" title="JDK8 Lambda"></a>JDK8 Lambda</h1><h2 id="一、lambda表达式"><a href="#一、lambda表达式" class="headerlink" title="一、lambda表达式"></a>一、lambda表达式</h2><h3 id="1、方法引用"><a href="#1、方法引用" class="headerlink" title="1、方法引用"></a>1、方法引用</h3><ul>
+<li>对象::实例方法（可以引用this、super）</li>
+<li>类::静态方法</li>
+<li>类::实例方法</li>
+</ul>
+<p>前二种情况，方法引用等同于提供方法参数的lamdba表达式</p>
+<blockquote>
+<p>System.out::println 等同于 System.out.println(x)<br>Math::pow 等同于 (x,y)-&gt;Math.pow(x,y)</p>
+</blockquote>
+<p>第三种情况，第一个参数会成为执行方法的对象</p>
+<blockquote>
+<p>String::compareToIgnoreCare 等同于 (x,y)-&gt; x.compareToIgnoreCase(y)</p>
+</blockquote>
+<h3 id="2、构造器引用"><a href="#2、构造器引用" class="headerlink" title="2、构造器引用"></a>2、构造器引用</h3><ul>
+<li>对象构造器   Button::new</li>
+<li>数组构造器   Button[]::new<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Button[] buttons = stream.toArray(Button[]::<span class="keyword">new</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="3、变量作用域"><a href="#3、变量作用域" class="headerlink" title="3、变量作用域"></a>3、变量作用域</h3><ul>
+<li><p>lambda表达式可以捕获闭合作用域汇中的变量值，但是被引用的变量值不可以被修改</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">repeatMessage</span><span class="params">(String text/ <span class="keyword">int</span> count)</span></span>&#123;</div><div class="line">	Runnable r = () -&gt; &#123; </div><div class="line">		<span class="keyword">while</span> (count &gt; <span class="number">0</span>)&#123;</div><div class="line">			count--; <span class="comment">//不能更改已捕获变量的值</span></div><div class="line">			System.out.printIn(text);</div><div class="line">			Thread.yield();</div><div class="line">		&#125;</div><div class="line">	&#125;;</div><div class="line">	<span class="keyword">new</span> Thread(r).stare()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>lambda表达式的方法体与嵌套代码块有着相同的作用域，也适用同样的命名冲突和屏蔽规则</p>
+</li>
+</ul>
+<h3 id="4、接口的默认方法（default）"><a href="#4、接口的默认方法（default）" class="headerlink" title="4、接口的默认方法（default）"></a>4、接口的默认方法（default）</h3><p>默认方法：允许接口包含带有具体实现的方法。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Person</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">long</span> <span class="title">getId</span><span class="params">()</span></span>;</div><div class="line">	<span class="function"><span class="keyword">default</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> <span class="string">"XXX"</span>;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>可以代替传统模式：提供一个接口，以及实现该接口大部分或全部方法的抽象类。<br>父类、接口默认方法，生效规则：</p>
+<ol>
+<li>选择父类中的方法（类优先）。如果父类提供了具体的实现方法，那么接口中具有对应的默认方法被忽略</li>
+<li>接口冲突。如果父接口提供了一个默认方法，而另一个接口也提供了一个相同的默认方法，那么你必须通过覆盖该方法来解决冲突</li>
+</ol>
+<h3 id="5-接口的静态方法（static）"><a href="#5-接口的静态方法（static）" class="headerlink" title="5. 接口的静态方法（static）"></a>5. 接口的静态方法（static）</h3><blockquote>
+<p>针对接口的工厂类没有什么存在的必要了，直接在接口里加静态方法即可。<br>针对接口的抽象类没有什么存在的必要了，直接在接口里加默认方法即可。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Comparator.comparing(String::length)</div></pre></td></tr></table></figure>
+<h2 id="二、StreamAPI"><a href="#二、StreamAPI" class="headerlink" title="二、StreamAPI"></a>二、StreamAPI</h2><h3 id="1-迭代器到Stream"><a href="#1-迭代器到Stream" class="headerlink" title="1.迭代器到Stream"></a>1.迭代器到Stream</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">List.stream()</div><div class="line">list.parellelStream()</div></pre></td></tr></table></figure>
+<h3 id="2-对象到Stream"><a href="#2-对象到Stream" class="headerlink" title="2.对象到Stream"></a>2.对象到Stream</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>. Stream.of(from)</div><div class="line"><span class="number">2</span>. Arrays.Stream(array,from,to)</div><div class="line"><span class="number">3</span>. Stream&lt;String&gt; silence = Stream.empty();	<span class="comment">// 空stream</span></div><div class="line"><span class="number">4</span>. Stream&lt;Double&gt; randoms = Stream.generate(Math::random);	<span class="comment">// 生产随机数Stream</span></div><div class="line"><span class="number">5</span>. Stream&lt;BigInteger&gt; integers = Stream.iterate(BigInteger.ZERO, n-&gt;n.add(BigInteger.ONE))	<span class="comment">// 生产无限序列，第一个参数是seed，第二个参数是f（seed）生成下一个数，UnaryOperator&lt;T&gt;接口的对象</span></div><div class="line"><span class="number">6</span>. Pattern、Files等都能提供方法生成Stream</div></pre></td></tr></table></figure>
+<h3 id="3-Optional"><a href="#3-Optional" class="headerlink" title="3.Optional"></a>3.Optional</h3><p>1.<code>Optional&lt;T&gt;</code>对象或者是对一个T类型对象的封装，或者表示不是任务对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//使用</span></div><div class="line">optionValue.ifPresent(results::add);</div><div class="line">Optional&lt;Boolean&gt; added = optionalValue.map(results:add)</div><div class="line">String result = optionString.orElse(<span class="string">""</span>)</div><div class="line">String result = optionString.orElseGet(()-&gt;System.getProperty(<span class="string">"user.dir"</span>))</div><div class="line"></div><div class="line"><span class="comment">//创建</span></div><div class="line">Optional.of(result)</div><div class="line">Optional.empty()</div><div class="line">Optional.ofNullable(obj); <span class="comment">//obj==null,返回Optional.empty();否则返回Optional.of(obj)</span></div></pre></td></tr></table></figure>
+<p>2.使用flatMap来组合Optional函数</p>
+<h3 id="4-聚合操作"><a href="#4-聚合操作" class="headerlink" title="4.聚合操作"></a>4.聚合操作</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> result = words.reduce(<span class="number">0</span>, (total, word) -&gt; total + word.length(), (total1, total2) -&gt; total1 + total2);</div></pre></td></tr></table></figure>
+<h3 id="5-收集结果"><a href="#5-收集结果" class="headerlink" title="5.收集结果"></a>5.收集结果</h3><p>1) List<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; result = stream.collect(Collectors.toList())</div><div class="line">Set&lt;String&gt; result = stream.collect(Collectors.toSet())</div><div class="line"></div><div class="line"><span class="comment">// 拼接字符创</span></div><div class="line">String result = stream.collect(Collectors.joining(<span class="string">","</span>))</div><div class="line">String result = stream.map(Object::toString).collect(Collectors.joining(<span class="string">","</span>))</div></pre></td></tr></table></figure></p>
+<p>如果要将流的结果聚合为一个综合、平均值、最大值或最小值，那么请使用summarizingXXX方法中的一种，</p>
+<p>2) Map<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">Stream&lt;Locale&gt; locales = Stream.of(Locale.getAvailableLocales());</div><div class="line"></div><div class="line">Map&lt;String, Set&lt;String&gt;&gt; languageNames = locales.collect(</div><div class="line">    Collectors.toMap(</div><div class="line">        l -&gt; l.getDisplayCountry(), <span class="comment">// key</span></div><div class="line">        l -&gt; Collections.singleton(l.getDisplayLangeuage(), <span class="comment">//value</span></div><div class="line">        (a,b) -&gt; &#123;  <span class="comment">// 冲突解决，a和b的组合</span></div><div class="line">            Set&lt;String&gt; r = <span class="keyword">new</span> HashSet&lt;&gt;(a);</div><div class="line">            r.addAll(b);</div><div class="line">            <span class="keyword">return</span> r;</div><div class="line">        &#125;</div><div class="line">    ));</div><div class="line"><span class="comment">// 等同</span></div><div class="line">Map&lt;String, List&lt;Locale&gt;&gt; countryToLocales = locales.collect(Collectors.groupingBy(Locale::getCountry));</div><div class="line">Map&lt;String, Set&lt;Locale&gt;&gt; countryToLocales = locales.collect(Collectors.groupingBy(Locale::getCountry, toSet())); <span class="comment">// value用set， toSet()为收集器</span></div><div class="line"></div><div class="line">List&lt;Locales&gt; x = countryToLocales.get(“CH”);</div></pre></td></tr></table></figure></p>
+<p>所有toMap、groupBy等都有对应的并发版本toCurrentMap、groupByConcurrent</p>
+<p>3) 数据分块<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Map&lt;Boolean, List&lt;Artist&gt;&gt; map = artists.collect(partitioningBy(Artist::isSolo));</div></pre></td></tr></table></figure></p>
+<p>4) 数据分组<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Map&lt;Artist, List&lt;Album&gt;&gt; map = artists.collect(groupBy(album -&gt; album.getMainMusician()));</div></pre></td></tr></table></figure></p>
+<p>5) 组合收集器<br>收集器是生成最终结果的配方，下游收集器则是生成部分结果的配方。<br>mapping允许在收集器的容器上执行类似map的操作，但需指明使用什么样的集合类存储结果，如toList()<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Map&lt;Artist, List&lt;String&gt;&gt; map = artists.collect(groupBy(Album::getMainMusician(), mapping(Album::getName, toList())));</div></pre></td></tr></table></figure></p>
+<h3 id="6-并行流"><a href="#6-并行流" class="headerlink" title="6.并行流"></a>6.并行流</h3><ul>
+<li>parallelStream方法可以将任意串行流装成并行流</li>
+<li>Stream.unordered可以不关心顺序，Stream.distinct在无序下性能更好</li>
+<li>groupByConcurr使用一个共享的并发map来减少合并map的开销，默认无序</li>
+</ul>
+<h3 id="7-peek"><a href="#7-peek" class="headerlink" title="7.peek"></a>7.peek</h3><p>peek方法，让你能查看每个值，同时能够继续操作流。在调试时可以用来：</p>
+<ul>
+<li>打印日志</li>
+<li>添加断点，可以像调试循环那样一步步跟踪</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">album.getMusicians()</div><div class="line">     .filter(artist -&gt; artist.getName().startsWith(<span class="string">"The"</span>))</div><div class="line">     .map(artist -&gt; artist.getNationality())</div><div class="line">     .peek(nation -&gt; System.out.println(<span class="string">"Found nationality:"</span> + nation))</div><div class="line">     .collect(Collectors.&lt;String&gt;toSet());</div></pre></td></tr></table></figure>
+<h2 id="三、lambda编程"><a href="#三、lambda编程" class="headerlink" title="三、lambda编程"></a>三、lambda编程</h2><h3 id="1、函数式接口"><a href="#1、函数式接口" class="headerlink" title="1、函数式接口"></a>1、函数式接口</h3><p><img src="http://i.imgur.com/FQ5jaOh.png" alt=""></p>
+<h3 id="2、自定义函数式接口"><a href="#2、自定义函数式接口" class="headerlink" title="2、自定义函数式接口"></a>2、自定义函数式接口</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@FunctionalInterface</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ColorTransformer</span></span>&#123;</div><div class="line">    <span class="function">Color <span class="title">apply</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,Color colorAtXY)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3、泛型"><a href="#3、泛型" class="headerlink" title="3、泛型"></a>3、泛型</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;JDK8-Lambda&quot;&gt;&lt;a href=&quot;#JDK8-Lambda&quot; class=&quot;headerlink&quot; title=&quot;JDK8 Lambda&quot;&gt;&lt;/a&gt;JDK8 Lambda&lt;/h1&gt;&lt;h2 id=&quot;一、lambda表达式&quot;&gt;&lt;a href=&quot;#一、lamb
+    
+    </summary>
+    
+      <category term="Java" scheme="http://fanjun.im/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>开机自动后台运行VirtualBox虚拟机</title>
+    <link href="http://fanjun.im/2017/02/%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8CVirtualBox%E8%99%9A%E6%8B%9F%E6%9C%BA.html"/>
+    <id>http://fanjun.im/2017/02/开机自动后台运行VirtualBox虚拟机.html</id>
+    <published>2017-02-19T05:34:00.000Z</published>
+    <updated>2017-02-19T05:50:43.730Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Step-1、编写脚本"><a href="#Step-1、编写脚本" class="headerlink" title="Step 1、编写脚本"></a>Step 1、编写脚本</h2><p><strong>启动虚拟机脚本: startvm.bat</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@echo off</div><div class="line">&quot;d:\dev\Oracle\VirtualBox\VBoxManage&quot; startvm default --type headless</div></pre></td></tr></table></figure></p>
+<p><strong>休眠虚拟机脚本: savestate.bat</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@echo off</div><div class="line">&quot;d:\dev\Oracle\VirtualBox\VBoxManage&quot; controlvm default savestate</div></pre></td></tr></table></figure></p>
+<p>注意:</p>
+<ul>
+<li>“d:\dev\Oracle\VirtualBox\VBoxManage”:VirtualBox的安装目录</li>
+<li>default:为虚拟机名字</li>
+</ul>
+<h2 id="Step-2、添加开关机自动执行"><a href="#Step-2、添加开关机自动执行" class="headerlink" title="Step 2、添加开关机自动执行"></a>Step 2、添加开关机自动执行</h2><p>快捷键<code>&lt;Win&gt; + R</code> 打开运行窗口，输入<code>gpedit.ms</code>c打开组策略，在<code>用户配置-&gt;Windows设置-&gt;脚本（登录/注销）</code>里，分别添加上面2个脚本。<br>现在你已经实现了开机后自动后台运行虚拟机。</p>
+<h2 id="附录、VBoxManage命令部分选项解析"><a href="#附录、VBoxManage命令部分选项解析" class="headerlink" title="附录、VBoxManage命令部分选项解析"></a>附录、VBoxManage命令部分选项解析</h2><p>VBoxManage命令可通过命令行修改vm的状态和控制vm的大部分行为。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">d:\Dev\Oracle\VirtualBox&gt;VBoxManage</div><div class="line">Oracle VM VirtualBox Command Line Management Interface Version 5.1.10</div><div class="line">(C) 2005-2016 Oracle Corporation</div><div class="line">All rights reserved.</div><div class="line"></div><div class="line">Usage:</div><div class="line"></div><div class="line">  VBoxManage [&lt;general option&gt;] &lt;command&gt;</div><div class="line"></div><div class="line"></div><div class="line">General Options:</div><div class="line"></div><div class="line">  [-v|--version]            print version number and exit</div><div class="line">  [-q|--nologo]             suppress the logo</div><div class="line">  [--settingspw &lt;pw&gt;]       provide the settings password</div><div class="line">  [--settingspwfile &lt;file&gt;] provide a file containing the settings password</div><div class="line"></div><div class="line"></div><div class="line">Commands:</div><div class="line"></div><div class="line">  list [--long|-l]          vms|runningvms|ostypes|hostdvds|hostfloppies|</div><div class="line">                            intnets|bridgedifs|hostonlyifs|natnets|dhcpservers|</div><div class="line">                            hostinfo|hostcpuids|hddbackends|hdds|dvds|floppies|</div><div class="line">                            usbhost|usbfilters|systemproperties|extpacks|</div><div class="line">                            groups|webcams|screenshotformats</div><div class="line"></div><div class="line">  showvminfo                &lt;uuid|vmname&gt; [--details]</div><div class="line">                            [--machinereadable]</div><div class="line">  showvminfo                &lt;uuid|vmname&gt; --log &lt;idx&gt;</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">  startvm                   &lt;uuid|vmname&gt;...</div><div class="line">                            [--type gui|sdl|headless|separate]</div><div class="line"></div><div class="line">  controlvm                 &lt;uuid|vmname&gt;</div><div class="line">                            pause|resume|reset|poweroff|savestate|</div><div class="line">                            acpipowerbutton|acpisleepbutton|</div><div class="line">                            keyboardputscancode &lt;hex&gt; [&lt;hex&gt; ...]|</div><div class="line"></div><div class="line">...</div></pre></td></tr></table></figure></p>
+<ul>
+<li>如果要使用uuid，可以通过 VBoxManage list vms查看</li>
+<li>startvm命令中type选项解析<ul>
+<li>gui – 图形化界面，VirtualBox的默认启动方式</li>
+<li>sdl – 图形化界面，但是少掉了部分功能，比如没有菜单等，一般用于调试过程</li>
+<li>headless – 后台运行，并且默认开启vrdp服务，可以通过远程桌面工具来访问</li>
+<li>separate – 分离式启动，在VirtualBox 5.0版本新增的启动方式：在后台启动虚拟机，分离的前端进程可以关闭，而虚拟机会继续运行</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      开机后自动后台运行虚拟机，只有进程，不显示GUI界面，关机自动保存虚拟机状态，以便下次开机恢复。
+    
+    </summary>
+    
+      <category term="VM" scheme="http://fanjun.im/categories/VM/"/>
+    
+      <category term="docker" scheme="http://fanjun.im/categories/VM/docker/"/>
+    
+    
+      <category term="VM" scheme="http://fanjun.im/tags/VM/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hexo Next 主题SEO优化</title>
     <link href="http://fanjun.im/2016/09/hexo_next_seo.html"/>
     <id>http://fanjun.im/2016/09/hexo_next_seo.html</id>
     <published>2016-09-24T05:38:00.000Z</published>
-    <updated>2016-09-24T15:19:43.584Z</updated>
+    <updated>2016-09-24T15:19:43.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近更新了下博客，但是发现在百度和google上都搜索不到，看来是要做下SEO优化了。</p>
 <blockquote>
@@ -112,7 +236,7 @@
     <link href="http://fanjun.im/2016/09/Paxos-Raft.html"/>
     <id>http://fanjun.im/2016/09/Paxos-Raft.html</id>
     <published>2016-09-10T06:14:04.000Z</published>
-    <updated>2016-09-24T06:30:35.047Z</updated>
+    <updated>2016-09-24T06:30:35.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Paxos"><a href="#Paxos" class="headerlink" title="Paxos"></a>Paxos</h2><p>Paxos 算法解决的问题是一个分布式系统如何就某个值（决议）达成一致。一个典型的场景是，在一个分布式数据库系统中，如果各节点的初始状态一致，每个节点执行相同的操作序列，那么他们最后能得到一个一致的状态。为保证每个节点执行相同的命令序列，需要在每一条指令上执行一个“一致性算法”以保证每个节点看到的指令一致。一个通用的一致性算法可以应用在许多场景中，是分布式计算中的重要问题。节点通信存在两种模型：共享内存（Shared memory）和消息传递（Messages passing）。Paxos 算法就是一种基于消息传递模型的一致性算法。</p>
 <p>Paxos 算法适用的几种情况：一台机器中多个进程/线程达成数据一致；分布式文件系统或者分布式数据库中多客户端并发读写数据；分布式存储中多个副本响应读写请求的一致性。</p>
@@ -270,7 +394,7 @@
     <link href="http://fanjun.im/2016/09/java-ssh-unreadable-code.html"/>
     <id>http://fanjun.im/2016/09/java-ssh-unreadable-code.html</id>
     <published>2016-09-03T15:41:37.000Z</published>
-    <updated>2016-09-24T06:32:21.047Z</updated>
+    <updated>2016-09-24T06:32:21.000Z</updated>
     
     <content type="html"><![CDATA[<p><strong>问题描述：</strong><br>在使用java调用ssh协议访问linux的时候，常常发现返回的结果中有乱码，这样的返回结果一般很难解析。如下：<br><img src="http://ocf6s1zuq.bkt.clouddn.com/java-ssh-unreadable-code/unreadable_code.png" alt=""></p>
 <p><strong>解决办法：</strong><br>造成这种情况的原因由于linux终端返回的代码中会包含控制代码和转义码，一般是以ESC开头的字符串，详见：<a href="http://www.truevue.org/linux/console-codes" target="_blank" rel="external">http://www.truevue.org/linux/console-codes</a>，一般在返回中以“[00m“的居多，用于指定显示的颜色、加粗等。<br>程序中需要去除这些字符，可以通过正则表达式：<code>\e\[.*?m|\e\].*?;</code></p>
@@ -294,7 +418,7 @@
     <link href="http://fanjun.im/2016/08/2PC_3PC.html"/>
     <id>http://fanjun.im/2016/08/2PC_3PC.html</id>
     <published>2016-08-18T15:17:06.000Z</published>
-    <updated>2016-09-24T06:31:50.038Z</updated>
+    <updated>2016-09-24T06:31:50.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="分布式事务及其实现机制"><a href="#分布式事务及其实现机制" class="headerlink" title="分布式事务及其实现机制"></a>分布式事务及其实现机制</h2><blockquote>
 <p>分布式事务是指会涉及到操作多个数据库（或者提供事务语义的系统，如JMS）的事务。其实就是将对同一数据库事务的概念扩大到了对多个数据库的事务。目的是为了保证分布式系统中事务操作的原子性。分布式事务处理的关键是必须有一种方法可以知道事务在任何地方所做的所有动作，提交或回滚事务的决定必须产生统一的结果（全部提交或全部回滚）。</p>
@@ -405,8 +529,8 @@
     <title>Hello World</title>
     <link href="http://fanjun.im/2016/08/hello-world.html"/>
     <id>http://fanjun.im/2016/08/hello-world.html</id>
-    <published>2016-08-12T08:57:17.371Z</published>
-    <updated>2016-08-12T14:13:11.727Z</updated>
+    <published>2016-08-12T14:00:00.000Z</published>
+    <updated>2017-11-08T01:24:11.922Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
