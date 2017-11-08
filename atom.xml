@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fanjun.im/"/>
-  <updated>2017-11-08T02:17:07.010Z</updated>
+  <updated>2017-11-08T02:37:55.019Z</updated>
   <id>http://fanjun.im/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://fanjun.im/2017/11/JDK8_Lambda.html"/>
     <id>http://fanjun.im/2017/11/JDK8_Lambda.html</id>
     <published>2017-11-08T02:05:00.000Z</published>
-    <updated>2017-11-08T02:17:07.010Z</updated>
+    <updated>2017-11-08T02:37:55.019Z</updated>
     
     <content type="html"><![CDATA[<h1 id="JDK8-Lambda"><a href="#JDK8-Lambda" class="headerlink" title="JDK8 Lambda"></a>JDK8 Lambda</h1><h2 id="一、lambda表达式"><a href="#一、lambda表达式" class="headerlink" title="一、lambda表达式"></a>一、lambda表达式</h2><h3 id="1、方法引用"><a href="#1、方法引用" class="headerlink" title="1、方法引用"></a>1、方法引用</h3><ul>
 <li>对象::实例方法（可以引用this、super）</li>
@@ -91,7 +91,7 @@
     
     </summary>
     
-      <category term="Java" scheme="http://fanjun.im/categories/Java/"/>
+      <category term="java" scheme="http://fanjun.im/categories/java/"/>
     
     
   </entry>
