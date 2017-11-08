@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fanjun.im/"/>
-  <updated>2017-11-08T02:07:36.493Z</updated>
+  <updated>2017-11-08T02:17:07.010Z</updated>
   <id>http://fanjun.im/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>开机自动后台运行VirtualBox虚拟机</title>
+    <title>JDK8 Lambda</title>
     <link href="http://fanjun.im/2017/11/JDK8_Lambda.html"/>
     <id>http://fanjun.im/2017/11/JDK8_Lambda.html</id>
     <published>2017-11-08T02:05:00.000Z</published>
-    <updated>2017-11-08T02:07:36.493Z</updated>
+    <updated>2017-11-08T02:17:07.010Z</updated>
     
     <content type="html"><![CDATA[<h1 id="JDK8-Lambda"><a href="#JDK8-Lambda" class="headerlink" title="JDK8 Lambda"></a>JDK8 Lambda</h1><h2 id="一、lambda表达式"><a href="#一、lambda表达式" class="headerlink" title="一、lambda表达式"></a>一、lambda表达式</h2><h3 id="1、方法引用"><a href="#1、方法引用" class="headerlink" title="1、方法引用"></a>1、方法引用</h3><ul>
 <li>对象::实例方法（可以引用this、super）</li>
@@ -81,7 +81,7 @@
 <li>添加断点，可以像调试循环那样一步步跟踪</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">album.getMusicians()</div><div class="line">     .filter(artist -&gt; artist.getName().startsWith(<span class="string">"The"</span>))</div><div class="line">     .map(artist -&gt; artist.getNationality())</div><div class="line">     .peek(nation -&gt; System.out.println(<span class="string">"Found nationality:"</span> + nation))</div><div class="line">     .collect(Collectors.&lt;String&gt;toSet());</div></pre></td></tr></table></figure>
-<h2 id="三、lambda编程"><a href="#三、lambda编程" class="headerlink" title="三、lambda编程"></a>三、lambda编程</h2><h3 id="1、函数式接口"><a href="#1、函数式接口" class="headerlink" title="1、函数式接口"></a>1、函数式接口</h3><p><img src="http://i.imgur.com/FQ5jaOh.png" alt=""></p>
+<h2 id="三、lambda编程"><a href="#三、lambda编程" class="headerlink" title="三、lambda编程"></a>三、lambda编程</h2><h3 id="1、函数式接口"><a href="#1、函数式接口" class="headerlink" title="1、函数式接口"></a>1、函数式接口</h3><p><img src="http://ocf6s1zuq.bkt.clouddn.com/jdk_lambda/%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3.png" alt=""></p>
 <h3 id="2、自定义函数式接口"><a href="#2、自定义函数式接口" class="headerlink" title="2、自定义函数式接口"></a>2、自定义函数式接口</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@FunctionalInterface</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ColorTransformer</span></span>&#123;</div><div class="line">    <span class="function">Color <span class="title">apply</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,Color colorAtXY)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="3、泛型"><a href="#3、泛型" class="headerlink" title="3、泛型"></a>3、泛型</h3>]]></content>
     

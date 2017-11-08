@@ -98,7 +98,7 @@ System.out::println 等同于 System.out.println(x)Math::pow 等同于 (x,y)-&am
 
 第三种情况，第一个参数会成为">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开机自动后台运行VirtualBox虚拟机">
+<meta property="og:title" content="JDK8 Lambda">
 <meta property="og:url" content="http://fanjun.im/2017/11/JDK8_Lambda.html">
 <meta property="og:site_name" content="FanJun's Blog">
 <meta property="og:description" content="JDK8 Lambda一、lambda表达式1、方法引用
@@ -111,10 +111,10 @@ System.out::println 等同于 System.out.println(x)Math::pow 等同于 (x,y)-&am
 System.out::println 等同于 System.out.println(x)Math::pow 等同于 (x,y)-&amp;gt;Math.pow(x,y)
 
 第三种情况，第一个参数会成为">
-<meta property="og:image" content="http://i.imgur.com/FQ5jaOh.png">
-<meta property="og:updated_time" content="2017-11-08T02:07:36.493Z">
+<meta property="og:image" content="http://ocf6s1zuq.bkt.clouddn.com/jdk_lambda/%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3.png">
+<meta property="og:updated_time" content="2017-11-08T02:17:07.010Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开机自动后台运行VirtualBox虚拟机">
+<meta name="twitter:title" content="JDK8 Lambda">
 <meta name="twitter:description" content="JDK8 Lambda一、lambda表达式1、方法引用
 对象::实例方法（可以引用this、super）
 类::静态方法
@@ -125,7 +125,7 @@ System.out::println 等同于 System.out.println(x)Math::pow 等同于 (x,y)-&am
 System.out::println 等同于 System.out.println(x)Math::pow 等同于 (x,y)-&amp;gt;Math.pow(x,y)
 
 第三种情况，第一个参数会成为">
-<meta name="twitter:image" content="http://i.imgur.com/FQ5jaOh.png">
+<meta name="twitter:image" content="http://ocf6s1zuq.bkt.clouddn.com/jdk_lambda/%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3.png">
 
 
 
@@ -164,7 +164,7 @@ System.out::println 等同于 System.out.println(x)Math::pow 等同于 (x,y)-&am
 })();
 </script>
 
-  <title> 开机自动后台运行VirtualBox虚拟机 | FanJun's Blog </title>
+  <title> JDK8 Lambda | FanJun's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -327,7 +327,7 @@ System.out::println 等同于 System.out.println(x)Math::pow 等同于 (x,y)-&am
             
             
               
-                开机自动后台运行VirtualBox虚拟机
+                JDK8 Lambda
               
             
           </h1>
@@ -457,7 +457,7 @@ System.out::println 等同于 System.out.println(x)Math::pow 等同于 (x,y)-&am
 <li>添加断点，可以像调试循环那样一步步跟踪</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">album.getMusicians()</div><div class="line">     .filter(artist -&gt; artist.getName().startsWith(<span class="string">"The"</span>))</div><div class="line">     .map(artist -&gt; artist.getNationality())</div><div class="line">     .peek(nation -&gt; System.out.println(<span class="string">"Found nationality:"</span> + nation))</div><div class="line">     .collect(Collectors.&lt;String&gt;toSet());</div></pre></td></tr></table></figure>
-<h2 id="三、lambda编程"><a href="#三、lambda编程" class="headerlink" title="三、lambda编程"></a>三、lambda编程</h2><h3 id="1、函数式接口"><a href="#1、函数式接口" class="headerlink" title="1、函数式接口"></a>1、函数式接口</h3><p><img src="http://i.imgur.com/FQ5jaOh.png" alt=""></p>
+<h2 id="三、lambda编程"><a href="#三、lambda编程" class="headerlink" title="三、lambda编程"></a>三、lambda编程</h2><h3 id="1、函数式接口"><a href="#1、函数式接口" class="headerlink" title="1、函数式接口"></a>1、函数式接口</h3><p><img src="http://ocf6s1zuq.bkt.clouddn.com/jdk_lambda/%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3.png" alt=""></p>
 <h3 id="2、自定义函数式接口"><a href="#2、自定义函数式接口" class="headerlink" title="2、自定义函数式接口"></a>2、自定义函数式接口</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@FunctionalInterface</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ColorTransformer</span></span>&#123;</div><div class="line">    <span class="function">Color <span class="title">apply</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,Color colorAtXY)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="3、泛型"><a href="#3、泛型" class="headerlink" title="3、泛型"></a>3、泛型</h3>
       
@@ -794,7 +794,7 @@ System.out::println 等同于 System.out.println(x)Math::pow 等同于 (x,y)-&am
     <script type="text/javascript">
       var disqus_shortname = 'fanjun_blog';
       var disqus_identifier = '2017/11/JDK8_Lambda.html';
-      var disqus_title = "开机自动后台运行VirtualBox虚拟机";
+      var disqus_title = "JDK8 Lambda";
       var disqus_url = 'http://fanjun.im/2017/11/JDK8_Lambda.html';
 
       function run_disqus_script(disqus_script){
